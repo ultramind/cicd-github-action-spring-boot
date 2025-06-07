@@ -32,4 +32,12 @@ jobs:
           mvn clean
           mvn -B package --file pom.xml
 
+      # building the docker image
+      - name: Build docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: ${{ secrets.DOCKET_HUB_USERNAME }}/spring-boot-cicd-demo/today
+
 
