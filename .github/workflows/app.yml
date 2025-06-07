@@ -40,14 +40,14 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKET_HUB_USERNAME }}/spring-boot-cicd-demo/today
 
-      # login into docker hub
+      # login into docker Hub
       - name: Docker authentication
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKET_HUB_USERNAME }}
           password: ${{ secrets.DOCKET_HUB_ACCESS_TOKEN }}
 
-      # build and push image to docker hub
+      # build and push image to docker Hub
       - name: Build image and push
         uses: docker/build-push-action@v6
         with:
