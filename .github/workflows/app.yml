@@ -26,3 +26,10 @@ jobs:
       - name: Running Unit test
         run: mvn -B test --file pom.xml
 
+      # building th java app
+      - name: Build app
+        run: |
+          mvn clean
+          mvn -B package --file pom.xml
+
+
