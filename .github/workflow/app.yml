@@ -1,0 +1,28 @@
+name: CICD GITHUB ACTION SPRING BOOT
+description: This is project to learn setting up CICD pipeline as a DevOps Engr using GITHUB ACTION
+
+on: 
+  push:
+    branches: 
+      - main
+
+jobs:
+  build-and-deploy:
+    name: build and deploy spring boot app
+    runs-on: ubuntu-latest
+    steps:
+      # checking out the code from github
+      - name: Checkout the Code
+        uses: actions/checkout@v4
+
+      # install java to our system
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with: 
+          distribution: 'corretto'
+          java-version: 17
+      
+      # running test on the app
+      - name: Running Unit test
+        run: mvn -B test --file pom.xml
+
