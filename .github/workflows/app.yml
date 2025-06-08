@@ -34,7 +34,7 @@ jobs:
 
       # building the docker image
       - name: Build docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v3
         with:
           context: .
           dockerfile: Dockerfile
@@ -50,12 +50,12 @@ jobs:
 
       # build and push image to docker Hub
       - name: Build image and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v3
         with:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd-demo/today
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd-demo:latest
 
 
 
